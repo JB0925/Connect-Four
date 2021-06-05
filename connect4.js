@@ -124,13 +124,15 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  let gameBoard = document.querySelector('#board');
-  let h1 = document.createElement('h1');
-  h1.innerText = msg;
-  h1.style.textAlign = 'center';
-  gameBoard.append(h1);
-
-}
+  let messageDiv = document.querySelector('.message');
+  messageDiv.innerText = msg;
+  setInterval(() => {
+    messageDiv.style.display = 'block';
+    setTimeout(() => {
+      messageDiv.style.display = 'none';
+    },500)
+  },1000);
+};
 
 /** handleClick: handle click of column top to play piece */
 

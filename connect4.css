@@ -16,8 +16,23 @@
 
 #board h1 {
   position: absolute;
+  font-family: 'Roboto', sans-serif;
   top: 100%;
   left: 27%;
+}
+
+.message {
+  position: absolute;
+  display: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 8rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+  top: 0;
+  left: 0;
+  height: 20%;
+  width: 100vw;
 }
 /* pieces are div within game table cells: draw as colored circles */
 
