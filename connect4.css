@@ -1,4 +1,10 @@
 /* game board table */
+#board {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
 
 #board td {
   width: 50px;
@@ -6,6 +12,11 @@
   border: solid 1px #666;
 }
 
+#board h1 {
+  position: absolute;
+  top: 100%;
+  left: 27%;
+}
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
