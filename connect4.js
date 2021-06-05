@@ -61,6 +61,7 @@ function makeHtmlBoard() {
     for (let x = 0; x < WIDTH; x++) {
       const cell = document.createElement("td");
       cell.setAttribute("id", `${y}-${x}`);
+      cell.style.backgroundColor = 'dodgerblue';
       row.append(cell);
     }
     // After one turn through the loop, we append the row (with its cells) to the game board.
@@ -68,6 +69,26 @@ function makeHtmlBoard() {
   }
 }
 
+// This function is used to dynamically add a class to the piece
+// depending on what row it is in. This determines the starting
+// "top" position of the piece, which later plays a part in its
+// falling animation to its resting position.
+const addClass = (coord) => {
+  switch(coord) {
+    case null:
+      return 'zero';
+    case 1:
+      return 'one';
+    case 2:
+      return 'two';
+    case 3:
+      return 'three';
+    case 4:
+      return 'four';
+    case 5:
+      return 'five';
+  };
+};
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
 function findSpotForCol(x) {
@@ -86,10 +107,18 @@ function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   let chip = document.createElement('div');
   chip.classList.add('piece');
+  chip.classList.add(addClass(y))
   currPlayer === 1 ? chip.classList.add('red') : chip.classList.add('blue');
   let correctSpot = document.getElementById(`${y}-${x}`);
   correctSpot.append(chip);
-}
+  // I learned that transitions to dynamically appended DOM elements will
+  // not work due to something called browser batching. Using set timeout
+  // allows a delay in adding the class to another batch, this giving us
+  // the transition effect.
+  setTimeout(() => {
+    chip.classList.add('lower');
+  },10);
+};
 
 /** endGame: announce game end */
 
