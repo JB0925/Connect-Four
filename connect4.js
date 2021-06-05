@@ -124,13 +124,18 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  let messageDiv = document.querySelector('.message');
+  const messageDiv = document.querySelector('.message');
+  let counter = 0;
   messageDiv.innerText = msg;
-  setInterval(() => {
+  const flashingMessage = setInterval(() => {
     messageDiv.style.display = 'block';
     setTimeout(() => {
       messageDiv.style.display = 'none';
     },500)
+    counter++
+    if (counter === 10) {
+      clearInterval(flashingMessage);
+    }
   },1000);
 };
 
