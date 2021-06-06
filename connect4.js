@@ -35,7 +35,9 @@ function makeHtmlBoard() {
   const htmlBoard = document.querySelector('#board');
   // TODO: add comment for this code
   // this portion of the code creates the row at the top of the table
-  // where the player clicks and a piece is added to the board
+  // where the player clicks and a piece is added to the board. It
+  // also sets the id of the element, and adds an event listener to 
+  // determine what happens when a "td" is clicked.
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
@@ -64,7 +66,7 @@ function makeHtmlBoard() {
       cell.style.backgroundColor = 'dodgerblue';
       row.append(cell);
     }
-    // After one turn through the loop, we append the row (with its cells) to the game board.
+    // After a full turn through each inner loop, we append the row (with its cells) to the game board.
     htmlBoard.append(row);
   }
 }
@@ -107,7 +109,7 @@ function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   let chip = document.createElement('div');
   chip.classList.add('piece');
-  chip.classList.add(addClass(y))
+  chip.classList.add(addClass(y));
   currPlayer === 1 ? chip.classList.add('red') : chip.classList.add('blue');
   let correctSpot = document.getElementById(`${y}-${x}`);
   correctSpot.append(chip);
@@ -138,10 +140,10 @@ function endGame(msg) {
 
 function handleClick(evt) {
   // get x from ID of clicked cell
-  var x = +evt.target.id;
+  const x = +evt.target.id;
   
   // get next spot in column (if none, ignore click)
-  var y = findSpotForCol(x);
+  const y = findSpotForCol(x);
   if (y === null) {
     return;
   }
@@ -194,12 +196,12 @@ function checkForWin() {
   // game has been won, because the _win function assures that every subarray 
   // falls within the legal bounds of the game, and that each [y][x] coordinate in
   // the in-memory game board belongs to the current player.
-  for (var y = 0; y < HEIGHT; y++) {
-    for (var x = 0; x < WIDTH; x++) {
-      var horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      var vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
-      var diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
-      var diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
+  for (let y = 0; y < HEIGHT; y++) {
+    for (let x = 0; x < WIDTH; x++) {
+      const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+      const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
 
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
