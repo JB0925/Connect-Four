@@ -14,13 +14,6 @@
   margin-bottom: 10px;
 }
 
-#board h1 {
-  position: absolute;
-  font-family: 'Roboto', sans-serif;
-  top: 100%;
-  left: 27%;
-}
-
 .message {
   position: absolute;
   display: none;
