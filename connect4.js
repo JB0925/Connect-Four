@@ -68,8 +68,8 @@ function makeHtmlBoard() {
     }
     // After a full turn through each inner loop, we append the row (with its cells) to the game board.
     htmlBoard.append(row);
-  }
-}
+  };
+};
 
 // This function is used to dynamically add a class to the piece
 // depending on what row it is in. This determines the starting
