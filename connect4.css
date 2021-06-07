@@ -1,4 +1,10 @@
 /* game board table */
+#game {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
 #board {
   position: absolute;
   left: 50%;
@@ -209,11 +215,33 @@ svg {
   .message {
     font-size: 5rem;
   }
+  svg {
+    left: -.5%;
+    height: 50%;
+    width: 30%;
+    display: none;
+  }
+
+  #svg2 {
+    left: 75.4%;
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .message {
     font-size: 4rem;
+  }
+  svg {
+    left: -.5%;
+    height: 50%;
+    width: 30%;
+    display: none;
+  }
+
+  #svg2 {
+    left: 75.4%;
+    display: none;
   }
 }
 
@@ -221,11 +249,33 @@ svg {
   .message {
     font-size: 3rem;
   }
+  svg {
+    left: -.5%;
+    height: 50%;
+    width: 30%;
+    display: none;
+  }
+
+  #svg2 {
+    left: 75.4%;
+    display: none;
+  }
 }
 
 @media screen and (max-width: 300px) {
   .message {
     font-size: 2rem;
+  }
+  svg {
+    left: -.5%;
+    height: 50%;
+    width: 30%;
+    display: none;
+  }
+
+  #svg2 {
+    left: 75.4%;
+    display: none;
   }
 }
 
