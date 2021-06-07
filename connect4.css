@@ -112,6 +112,16 @@ svg {
   background-color: gold;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 3) {
+  svg {
+    display: none;
+  }
+
+  #svg2 {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1500px) {
   svg {
     left: 20.15%;
