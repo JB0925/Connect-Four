@@ -112,7 +112,7 @@ svg {
   background-color: gold;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 3) {
+@media screen and (max-height: 800px) {
   svg {
     display: none;
   }
