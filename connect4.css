@@ -32,7 +32,7 @@ svg {
   position: absolute;
   height: 49%;
   width: 20%;
-  top: 30%;
+  top: 32%;
   left: 14.5%;
   max-height: 350px;
 }
@@ -41,7 +41,7 @@ svg {
   position: absolute;
   height: 49%;
   width: 20%;
-  top: 30%;
+  top: 32%;
   left: 65.5%;
   max-height: 350px;
   transform: scaleX(-1);
@@ -108,11 +108,11 @@ svg {
 
 @media screen and (max-width: 1500px) {
   svg {
-    left: 20.35%;
+    left: 20.15%;
   }
 
   #svg2 {
-    left: 59.6%;
+    left: 59.8%;
   }
 }
 
@@ -167,6 +167,9 @@ svg {
 }
 
 @media screen and (max-width: 900px) {
+  .message {
+    font-size: 6rem;
+  }
   svg {
     left: 6.5%;
   }
@@ -199,6 +202,18 @@ svg {
 
   #svg2 {
     left: 75.4%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .message {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .message {
+    font-size: 4rem;
   }
 }
 

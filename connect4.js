@@ -15,7 +15,7 @@ let board = []; // array of rows, each row is array of cells  (board[y][x])
  *    board = array of rows, each row is array of cells  (board[y][x])
  */
 
-function makeBoard() {
+const makeBoard = () => {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
   let rowArray = []
   for (let i = 0; i < HEIGHT; i++) {
@@ -30,7 +30,7 @@ function makeBoard() {
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
-function makeHtmlBoard() {
+const makeHtmlBoard = () => {
   // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
   const htmlBoard = document.querySelector('#board');
   // TODO: add comment for this code
@@ -93,7 +93,7 @@ const addClass = (coord) => {
 };
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 
-function findSpotForCol(x) {
+const findSpotForCol = (x) => {
   // TODO: write the real version of this, rather than always returning 0
   let columns = document.querySelectorAll('td');
   columns = Array.from(columns)
@@ -105,7 +105,7 @@ function findSpotForCol(x) {
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
-function placeInTable(y, x) {
+const placeInTable = (y, x) => {
   // TODO: make a div and insert into correct table cell
   let chip = document.createElement('div');
   chip.classList.add('piece');
@@ -124,7 +124,7 @@ function placeInTable(y, x) {
 
 /** endGame: announce game end */
 
-function endGame(msg) {
+const endGame = (msg) => {
   // TODO: pop up alert message
   const messageDiv = document.querySelector('.message');
   let counter = 0;
@@ -143,7 +143,7 @@ function endGame(msg) {
 
 /** handleClick: handle click of column top to play piece */
 
-function handleClick(evt) {
+const handleClick = (evt) => {
   // get x from ID of clicked cell
   const x = +evt.target.id;
   
@@ -176,8 +176,8 @@ function handleClick(evt) {
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
-function checkForWin() {
-  function _win(cells) {
+const checkForWin = () => {
+  const _win = (cells) => {
     // Check four cells to see if they're all color of current player
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
