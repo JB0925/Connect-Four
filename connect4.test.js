@@ -11,19 +11,23 @@ describe('create the in-memory game board', () => {
 
 describe('create the html board', () => {
     let gameBoard = document.querySelector('#board');
-    
-    it('should create a game board in the DOM', () => {
-        makeHtmlBoard();
-        expect(gameBoard.childElementCount).toBe(14);
-        let WIDTH = 10;
-        let HEIGHT = 5;
-        makeHtmlBoard();
-        expect(gameBoard.childElementCount).toBeGreaterThan(14);
-    });
 
     afterEach(() => {
         gameBoard.innerHTML = '';
     });
+    
+    it('should create a game board in the DOM with 7 child elements', () => {
+        makeHtmlBoard();
+        expect(gameBoard.childElementCount).toBe(7);
+    });
+
+    it('should create a game board with 14 child elements', () => {
+        let WIDTH = 10;
+        let HEIGHT = 5;
+        makeHtmlBoard();
+        expect(gameBoard.childElementCount).toEqual(14);
+    })
+
 });
 
 describe('return the name of the appropriate CSS class', () => {
