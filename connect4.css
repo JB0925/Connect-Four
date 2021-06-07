@@ -27,6 +27,25 @@
   height: 20%;
   width: 100vw;
 }
+
+svg {
+  position: absolute;
+  height: 49%;
+  width: 20%;
+  top: 30%;
+  left: 14.5%;
+  max-height: 350px;
+}
+
+#svg2 {
+  position: absolute;
+  height: 49%;
+  width: 20%;
+  top: 30%;
+  left: 65.5%;
+  max-height: 350px;
+  transform: scaleX(-1);
+}
 /* pieces are div within game table cells: draw as colored circles */
 
 .piece {
@@ -86,3 +105,100 @@
 #column-top td:hover {
   background-color: gold;
 }
+
+@media screen and (max-width: 1500px) {
+  svg {
+    left: 20.35%;
+  }
+
+  #svg2 {
+    left: 59.6%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  svg {
+    left: 18.5%;
+  }
+
+  #svg2 {
+    left: 61.4%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  svg {
+    left: 16.5%;
+  }
+
+  #svg2 {
+    left: 63.4%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  svg {
+    left: 14.5%;
+  }
+
+  #svg2 {
+    left: 65.4%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  svg {
+    left: 12.5%;
+  }
+
+  #svg2 {
+    left: 67.4%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  svg {
+    left: 10.5%;
+  }
+
+  #svg2 {
+    left: 69.4%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  svg {
+    left: 6.5%;
+  }
+
+  #svg2 {
+    left: 72.8%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  svg {
+    left: 5.3%;
+    height: 80%;
+    top: 32%;
+  }
+
+  #svg2 {
+    left: 74.6%;
+    top: 31.5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  svg {
+    left: -.5%;
+    height: 50%;
+    width: 30%;
+    display: none;
+  }
+
+  #svg2 {
+    left: 75.4%;
+  }
+}
+
