@@ -10,6 +10,7 @@ const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
 let board = []; // array of rows, each row is array of cells  (board[y][x])
+let gameOver = false;
 
 /** makeBoard: create in-JS board structure:
  *    board = array of rows, each row is array of cells  (board[y][x])
@@ -135,7 +136,7 @@ const endGame = (msg) => {
       messageDiv.style.display = 'none';
     },500)
     counter++
-    if (counter === 10) {
+    if (counter === 5) {
       clearInterval(flashingMessage);
     }
   },1000);
@@ -144,34 +145,40 @@ const endGame = (msg) => {
 /** handleClick: handle click of column top to play piece */
 
 const handleClick = (evt) => {
-  // get x from ID of clicked cell
-  const x = +evt.target.id;
-  
-  // get next spot in column (if none, ignore click)
-  const y = findSpotForCol(x);
-  if (y === null) {
-    return;
-  }
+  if (!gameOver) {
+    // get x from ID of clicked cell
+    const x = +evt.target.id;
+    
+    // get next spot in column (if none, ignore click)
+    const y = findSpotForCol(x);
+    if (y === null) {
+      return;
+    }
 
-  // place piece in board and add to HTML table
-  // TODO: add line to update in-memory board
-  placeInTable(y, x);
-  board[y][x] = currPlayer;
-  
-  // check for win
-  if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
-  }
+    // place piece in board and add to HTML table
+    // TODO: add line to update in-memory board
+    if (!gameOver) {
+      placeInTable(y, x);
+      board[y][x] = currPlayer;
+    }
+    
+    // check for win
+    if (checkForWin()) {
+      gameOver = true;
+      return endGame(`Player ${currPlayer} won!`);
+    }
 
-  // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-  let allSpacesFilled = board.every(row => row.every(cell => cell !== null));
-  if (allSpacesFilled) {
-    return endGame('You Tied!!!');
-  };
-  // switch players
-  // TODO: switch currPlayer 1 <-> 2
-  currPlayer = currPlayer === 1 ? 2 : 1;
+    // check for tie
+    // TODO: check if all cells in board are filled; if so call, call endGame
+    let allSpacesFilled = board.every(row => row.every(cell => cell !== null));
+    if (allSpacesFilled) {
+      gameOver = true;
+      return endGame('You Tied!!!');
+    };
+    // switch players
+    // TODO: switch currPlayer 1 <-> 2
+    currPlayer = currPlayer === 1 ? 2 : 1;
+  }
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
